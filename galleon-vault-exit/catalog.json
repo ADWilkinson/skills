@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "slug": "galleon-vault-exit",
+  "provider": "Galleon Labs",
+  "providerUrl": "https://github.com/galleonlabs/crypto-defi-skills",
+  "logo": null,
+  "demo": {
+    "title": "vault-exit-example.txt",
+    "language": "text",
+    "code": "Example using the skill's bundled synthetic snapshot\n\nYou:   Can I redeem all 1,000 of my vault shares right now?\nBankr: Not all of them. At block 24,000,000 the vault's maxRedeem for your\n       address is 400 shares, which previewRedeem prices at 435.6 units\n       of the underlying asset. The other 600 shares cannot leave at\n       this block.\n       Next read: the vault's pause state, fees and strategy liquidity,\n       to explain the 400-share limit. This is a read at one block;\n       I'll refresh it before you act, and nothing has been signed."
+  },
+  "setup": [
+    "Install the skill with the command below. It reads a vault's own limits and previews and never signs or submits a transaction",
+    "Ask about a specific position: \"how many of my shares in <vault address> on Base can I redeem right now?\" The skill reads the vault, your share balance and the vault's limits at one block",
+    "For ERC-7540 vaults with queued redemptions, ask what is pending and what is claimable; the skill keeps requests, claims and units separate",
+    "Treat the answer as a snapshot. Ask again before you exit, and approve any withdrawal separately through Bankr's normal confirmation"
+  ],
+  "install": {
+    "type": "bankr",
+    "repoPath": "galleon-vault-exit",
+    "command": "install the galleon-vault-exit skill from https://github.com/BankrBot/skills/tree/main/galleon-vault-exit"
+  }
+}
